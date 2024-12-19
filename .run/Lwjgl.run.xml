@@ -3,7 +3,7 @@
     <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="com.goldsprite.gsgdxf.samples.lwjgl3.Lwjgl3Launcher" />
-    <module name="GSGDXFramework.lwjgl3.main" />
+    <module name="libgdx_dev_template.lwjgl3.main" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

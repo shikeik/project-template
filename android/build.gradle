@@ -17,7 +17,7 @@ android {
 			aidl.srcDirs = ['src/main/aidl']
 			renderscript.srcDirs = ['src/main/renderscript']
 			res.srcDirs = ['src/main/res'] //旧版android兼容
-			assets.srcDirs = ['../assets'] //aide兼容
+			assets.srcDirs = ['../core/src/main/assets'] //aide兼容
 			jniLibs.srcDirs = ['src/main/JNIlibs'] //aide兼容
 		}
 	}

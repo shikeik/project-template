@@ -10,6 +10,9 @@
 ### [shikeik](readme/devloper_logs/README_SHIKEIK.md)
 
 ## 模板日志
+### `0.1.1`: 修正资源目录找不到bug
+1. 还是将根目录assets/放到core/src/main/assets/下以保证aide能识别
+
 ### `0.1.0`: 初始化三端项目模板
 1. 支持三端开发: idea-android, idea-windows, aide-android
 2. 配置项目内.run目录用于预设idea运行配置: 
@@ -50,7 +53,7 @@
 ## 项目进度
 
 ## 实际贡献者
-- shikeik (提交次数: 5)
+- shikeik (提交次数: 6)
 ---
 
 ## 项目规范（简易版）
