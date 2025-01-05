@@ -1,11 +1,28 @@
+plugins {
+	id 'java-library'
+	id 'maven-publish'
+}
+
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 eclipse.project.name = appName + '-core'
 
+group = 'com.goldsprite.gdxcore.ui'
+version = '0.1.0'
+
 dependencies {
 	api "com.badlogicgames.gdx:gdx:1.12.1"
+	api "com.badlogicgames.gdx:gdx-freetype:1.12.1"
 
 	if (enableGraalNative == 'true') {
 		implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
+	}
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+		}
 	}
 }
 
@@ -103,4 +120,9 @@ testing {
 }
 tasks.named('build') {
 	dependsOn testing.suites.test // 确保 testing 的测试任务在 build 时执行
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }

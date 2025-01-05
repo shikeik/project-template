@@ -9,32 +9,6 @@
 ## 开发者日志
 ### [shikeik](readme/devloper_logs/README_SHIKEIK.md)
 
-## 模板日志
-### `0.1.1`: 修正资源目录找不到bug
-1. 还是将根目录assets/放到core/src/main/assets/下以保证aide能识别
-
-### `0.1.0`: 初始化三端项目模板
-1. 支持三端开发: idea-android, idea-windows, aide-android
-2. 配置项目内.run目录用于预设idea运行配置: 
-   1. 运行android, 
-   2. 运行lwjgl, 
-   3. 运行gradle任务clean build
-3. 简单编写一个显示libgdx的logo的MainGame作为游戏内容
-4. 忽略文件: 
-   1. 忽略所有build/
-   2. 忽略javadoc/
-   3. 忽略.idea/
-   4. 忽略.gradle/
-   5. 忽略.shikeik/
-5. editorconfig: 
-   1. 缩进统一使用tab
-   2. 换行符为linux的LF即\n
-6. 包含4个模块: 
-   1. 核心core
-   2. 平台android
-   3. 平台lwjgl
-   4. 示例examples
-
 ## 项目配置
 - ``idea``-2024.3
 - `java`-1.8
@@ -53,7 +27,7 @@
 ## 项目进度
 
 ## 实际贡献者
-- shikeik (提交次数: 6)
+- shikeik (提交次数: 7)
 ---
 
 ## 项目规范（简易版）

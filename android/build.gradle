@@ -8,7 +8,7 @@ apply plugin: 'com.android.application'
 
 
 android {
-	namespace "com.goldsprite.gsgdxf.samples.android"
+	namespace "com.goldsprite.infinityworld.android"
 	compileSdk 30 //旧版android兼容
 	sourceSets {
 		main {
@@ -30,7 +30,7 @@ android {
 		}
 	}
 	defaultConfig {
-		applicationId 'com.goldsprite.gsgdxf.samples.android'
+		applicationId 'com.goldsprite.infinityworld.android'
 		minSdkVersion 21
 		targetSdkVersion 34
 		versionCode 1
@@ -73,6 +73,11 @@ dependencies {
 	natives "com.badlogicgames.gdx:gdx-platform:1.12.1:natives-armeabi-v7a"
 	natives "com.badlogicgames.gdx:gdx-platform:1.12.1:natives-x86"
 	natives "com.badlogicgames.gdx:gdx-platform:1.12.1:natives-x86_64"
+
+	natives "com.badlogicgames.gdx:gdx-freetype-platform:1.12.1:natives-armeabi-v7a"
+	natives "com.badlogicgames.gdx:gdx-freetype-platform:1.12.1:natives-arm64-v8a"
+	natives "com.badlogicgames.gdx:gdx-freetype-platform:1.12.1:natives-x86"
+	natives "com.badlogicgames.gdx:gdx-freetype-platform:1.12.1:natives-x86_64"
 
 }
 

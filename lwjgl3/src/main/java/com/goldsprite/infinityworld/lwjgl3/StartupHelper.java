@@ -14,12 +14,13 @@
  */
 //Note, the above license and copyright applies to this file only.
 
-package com.goldsprite.gsgdxf.samples.lwjgl3;
+package com.goldsprite.infinityworld.lwjgl3;
 
 import org.lwjgl.system.macosx.LibC;
 
-import java.io.*;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
 

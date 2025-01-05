@@ -2,9 +2,8 @@ plugins {
 	id 'java'
 }
 
-repositories {
-	mavenCentral()
-}
+group = 'com.goldsprite.infinityworld'
+version = '0.1.0'
 
 dependencies {
 	api project(':core')

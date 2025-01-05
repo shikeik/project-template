@@ -1,22 +1,22 @@
 buildscript {
 	repositories {
-		maven {
-			url 'https://maven.aliyun.com/repository/public/'
-		}
-		maven {
-			url "https://maven.aliyun.com/nexus/content/groups/public"
-		}
-		maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
-		maven { url 'https://maven.aliyun.com/repository/google' }
-		maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
-		maven { url 'https://maven.aliyun.com/repository/jcenter' }
-		mavenCentral()
-		maven { url 'https://s01.oss.sonatype.org' }
-		gradlePluginPortal()
-		mavenLocal()
 		google()
+		jcenter()
+		mavenLocal()
+		mavenCentral()
+		gradlePluginPortal()
+		maven { url 'https://maven.aliyun.com/repository/public/' }
+		maven { url 'https://maven.aliyun.com/repository/google' }
+		maven { url 'https://maven.aliyun.com/repository/jcenter' }
+		maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+		maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
+		maven { url 'https://s01.oss.sonatype.org' }
 		maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 		maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
+		maven { url "https://jitpack.io" }
+		maven { url 'https://repo1.maven.org/maven2/' }
+		maven { url 'https://dl.bintray.com/ppartisan/maven/' }
+		maven { url "https://clojars.org/repo/" }
 	}
 	dependencies {
 		classpath 'com.android.tools.build:gradle:7.4.1'
@@ -68,23 +68,23 @@ subprojects {
 	version = '$projectVersion'
 	ext.appName = 'GSGDXFramework'
 	repositories {
-		maven {
-			url 'https://maven.aliyun.com/repository/public/'
-		}
-		maven {
-			url "https://maven.aliyun.com/nexus/content/groups/public"
-		}
-		maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
-		maven { url 'https://maven.aliyun.com/repository/google' }
-		maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
-		maven { url 'https://maven.aliyun.com/repository/jcenter' }
-		mavenCentral()
-		maven { url 'https://s01.oss.sonatype.org' }
-		// You may want to remove the following line if you have errors downloading dependencies.
+		google()
+		jcenter()
 		mavenLocal()
+		mavenCentral()
+		gradlePluginPortal()
+		maven { url 'https://maven.aliyun.com/repository/public/' }
+		maven { url 'https://maven.aliyun.com/repository/google' }
+		maven { url 'https://maven.aliyun.com/repository/jcenter' }
+		maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+		maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
+		maven { url 'https://s01.oss.sonatype.org' }
 		maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 		maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
-		maven { url 'https://jitpack.io' }
+		maven { url "https://jitpack.io" }
+		maven { url 'https://repo1.maven.org/maven2/' }
+		maven { url 'https://dl.bintray.com/ppartisan/maven/' }
+		maven { url "https://clojars.org/repo/" }
 	}
 }
 
