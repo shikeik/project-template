@@ -1,4 +1,4 @@
-# libgdx_dev_template
+# LibgdxDevTemplate
 
 ## [Get Started](readme/docs/README_GRADLE_HELPER.md)
 

@@ -6,7 +6,7 @@ plugins {
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 eclipse.project.name = appName + '-core'
 
-group = 'com.goldsprite.gdxcore.ui'
+group = 'com.example.libgdxdevtemplate.core'
 version = '0.1.0'
 
 dependencies {
@@ -43,6 +43,28 @@ tasks.register('updateCommitCounts') {
 		def modifiedContent = content.replaceAll("(?s)$startMarker.*?$endMarker", "$startMarker\n$endMarker")
 		// 将修改后的内容写回文件
 		readmeFile.text = modifiedContent
+
+		// 检查是否是 Git 仓库
+		def isGitRepo = 'git rev-parse --is-inside-work-tree'.execute().text.trim() == 'true'
+
+		if (!isGitRepo) {
+			println "当前目录不是一个 Git 仓库。"
+			return // 退出任务
+		}
+
+		// 检查是否有提交记录
+		def hasCommits = true
+		def checkCommitsProcess = 'git rev-parse HEAD'.execute()
+		checkCommitsProcess.waitFor() // 等待命令执行完成
+
+		if (checkCommitsProcess.exitValue() != 0) {
+			hasCommits = false
+		}
+
+		if (!hasCommits) {
+			println "当前仓库没有任何提交记录，任务取消。"
+			return // 退出任务
+		}
 
 		// 获取每个开发者的提交次数
 		def commits = 'git shortlog -s -n --all'.execute().text

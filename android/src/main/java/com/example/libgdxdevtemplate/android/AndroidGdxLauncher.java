@@ -1,11 +1,11 @@
-package com.goldsprite.infinityworld.android;
+package com.example.libgdxdevtemplate.android;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 
-import com.goldsprite.infinityworld.GdxLauncher;
+import com.example.libgdxdevtemplate.GdxLauncher;
 
 public class AndroidGdxLauncher extends AndroidApplication {
 

@@ -1,4 +1,4 @@
-package com.goldsprite.infinityworld.android;
+package com.example.libgdxdevtemplate.android;
 
 import android.app.Activity;
 import android.app.AlertDialog;

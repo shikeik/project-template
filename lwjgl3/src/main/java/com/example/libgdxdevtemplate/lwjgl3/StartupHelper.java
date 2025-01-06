@@ -14,7 +14,7 @@
  */
 //Note, the above license and copyright applies to this file only.
 
-package com.goldsprite.infinityworld.lwjgl3;
+package com.example.libgdxdevtemplate.lwjgl3;
 
 import org.lwjgl.system.macosx.LibC;
 

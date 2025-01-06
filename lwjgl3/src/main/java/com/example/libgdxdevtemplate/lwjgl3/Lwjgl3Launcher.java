@@ -1,9 +1,9 @@
-package com.goldsprite.infinityworld.lwjgl3;
+package com.example.libgdxdevtemplate.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
-import com.goldsprite.infinityworld.GdxLauncher;
+import com.example.libgdxdevtemplate.GdxLauncher;
 
 /**
  * Launches the desktop (LWJGL3) application.
@@ -29,7 +29,7 @@ public class Lwjgl3Launcher {
 		configuration.useVsync(false);
 		//// Limits FPS to the refresh rate of the currently active monitor, plus 1 to try to match fractional
 		//// refresh rates. The Vsync setting above should limit the actual FPS to match the monitor.
-		// 不限制帧率
+		// 如果不限制帧率注释即可
 		 configuration.setForegroundFPS(120);
 		// configuration.setForegroundFPS(Lwjgl3ApplicationConfiguration.getDisplayMode().refreshRate + 1);
 		//// If you remove the above line and set Vsync to false, you can get unlimited FPS, which can be

@@ -8,7 +8,7 @@ apply plugin: 'com.android.application'
 
 
 android {
-	namespace "com.goldsprite.infinityworld.android"
+	namespace "com.example.libgdxdevtemplate.android"
 	compileSdk 30 //旧版android兼容
 	sourceSets {
 		main {
@@ -30,8 +30,8 @@ android {
 		}
 	}
 	defaultConfig {
-		applicationId 'com.goldsprite.infinityworld.android'
-		minSdkVersion 21
+		applicationId 'com.example.libgdxdevtemplate.android'
+		minSdkVersion 24
 		targetSdkVersion 34
 		versionCode 1
 		versionName "1.0"
@@ -135,7 +135,7 @@ tasks.register('run', Exec) {
 	}
 
 	def adb = path + "/platform-tools/adb"
-	commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.libgdxbar.pvzlikegame/com.libgdxbar.pvzlikegame.android.AndroidLauncher'
+	commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.example.libgdxdevtemplate/com.example.libgdxdevtemplate.android.AndroidLauncher'
 }
 
 eclipse.project.name = appName + "-android"

@@ -1,4 +1,4 @@
-package com.goldsprite.infinityworld;
+package com.example.libgdxdevtemplate;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;

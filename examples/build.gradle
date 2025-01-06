@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 }
 
-group = 'com.goldsprite.infinityworld'
+group = 'com.example.libgdxdevtemplate'
 version = '0.1.0'
 
 dependencies {
