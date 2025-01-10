@@ -1,0 +1,2 @@
+latest-version: "0.1.1"
+download-link: "https://${mirror-link}/shikeik/project-template/releases/download/project-template-generator-${version}/ProjectTemplateGenerator-${version}.${type}"
