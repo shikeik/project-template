@@ -10,8 +10,8 @@ group = 'com.example.libgdxdevtemplate.core'
 version = '0.1.0'
 
 dependencies {
-	api "com.badlogicgames.gdx:gdx:1.12.1"
-	api "com.badlogicgames.gdx:gdx-freetype:1.12.1"
+	api "com.badlogicgames.gdx:gdx:$gdxVersion"
+	api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
 
 	if (enableGraalNative == 'true') {
 		implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"

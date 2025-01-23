@@ -17,7 +17,7 @@ android {
 			aidl.srcDirs = ['src/main/aidl']
 			renderscript.srcDirs = ['src/main/renderscript']
 			res.srcDirs = ['src/main/res'] //旧版android兼容
-			assets.srcDirs = ['../core/src/main/assets'] //aide兼容
+			assets.srcDirs = ['../assets'] //--aide兼容-- 已更新到根目录位置
 			jniLibs.srcDirs = ['src/main/JNIlibs'] //aide兼容
 		}
 	}
@@ -66,18 +66,18 @@ configurations { natives }
 dependencies {
 	coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 
-	implementation "com.badlogicgames.gdx:gdx-backend-android:1.12.1"
+	implementation "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
 	implementation project(':examples')
 
-	natives "com.badlogicgames.gdx:gdx-platform:1.12.1:natives-arm64-v8a"
-	natives "com.badlogicgames.gdx:gdx-platform:1.12.1:natives-armeabi-v7a"
-	natives "com.badlogicgames.gdx:gdx-platform:1.12.1:natives-x86"
-	natives "com.badlogicgames.gdx:gdx-platform:1.12.1:natives-x86_64"
+	natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-arm64-v8a"
+	natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
+	natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
+	natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
 
-	natives "com.badlogicgames.gdx:gdx-freetype-platform:1.12.1:natives-armeabi-v7a"
-	natives "com.badlogicgames.gdx:gdx-freetype-platform:1.12.1:natives-arm64-v8a"
-	natives "com.badlogicgames.gdx:gdx-freetype-platform:1.12.1:natives-x86"
-	natives "com.badlogicgames.gdx:gdx-freetype-platform:1.12.1:natives-x86_64"
+	natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-armeabi-v7a"
+	natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-arm64-v8a"
+	natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86"
+	natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86_64"
 
 }
 
