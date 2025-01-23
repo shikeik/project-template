@@ -105,7 +105,7 @@ tasks.register('updateCommitCounts') {
 	}
 }
 // 在构建过程中执行该任务
-build.dependsOn updateCommitCounts
+// build.dependsOn updateCommitCounts
 
 tasks.javadoc {
 	// 设置生成的 Javadoc 的输出目录
