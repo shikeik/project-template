@@ -66,7 +66,7 @@ configure(subprojects - project(':android')) {
 
 subprojects {
 	version = '$projectVersion'
-	ext.appName = 'GSGDXFramework'
+	ext.appName = 'LibgdxDevTemplate'
 	repositories {
 		google()
 		jcenter()
@@ -88,5 +88,5 @@ subprojects {
 	}
 }
 
-eclipse.project.name = 'GSGDXFramework' + '-parent'
+eclipse.project.name = 'LibgdxDevTemplate' + '-parent'
 
