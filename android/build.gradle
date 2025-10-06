@@ -6,6 +6,7 @@ buildscript {
 }
 apply plugin: 'com.android.application'
 
+eclipse.project.name = appName + "-android"
 
 android {
 	namespace "com.example.libgdxdevtemplate.android"
@@ -143,8 +144,9 @@ tasks.register('copyAndroidNatives') {
 	}
 }
 
-tasks.matching { it.name.contains("merge") && it.name.contains("JniLibFolders") }.configureEach { packageTask ->
-	packageTask.dependsOn 'copyAndroidNatives'
+tasks.matching { it.name.contains("merge") && it.name.contains("JniLibFolders") }.configureEach {
+	packageTask ->
+		packageTask.dependsOn 'copyAndroidNatives'
 }
 
 tasks.register('run', Exec) {
@@ -166,7 +168,29 @@ tasks.register('run', Exec) {
 	}
 
 	def adb = path + "/platform-tools/adb"
-	commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.example.libgdxdevtemplate/com.example.libgdxdevtemplate.android.AndroidLauncher'
+	commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.goldsprite.nfightgame/com.goldsprite.nfightgame.android.AndroidLauncher'
 }
 
-eclipse.project.name = appName + "-android"
+// APK 复制配置
+android.applicationVariants.all { variant -> {
+	variant.assembleProvider.get().doLast {
+		def apk = variant.outputs.first().outputFile
+		def outputDir = file("${rootDir}/outputs")
+		def targetFileName = "${rootProject.name}_V${projectVersion}.apk"
+
+		// 执行复制
+		if (!outputDir.exists()) {
+			outputDir.mkdirs()
+		}
+		copy {
+			from apk
+			into outputDir
+			rename { targetFileName }
+		}
+
+		println "✅ APK 复制完成:"
+		println "   源文件: ${apk.absolutePath}"
+		println "   目标文件: ${outputDir.absolutePath}/${targetFileName}"
+	}
+}
+}
