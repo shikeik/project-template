@@ -138,7 +138,7 @@ tasks.register('generateBuildConfig') {
 	//写入数据
 	versionFile.text = """package $projectPackage;
 public class BuildConfig {
-	public static final String GAME_VERSION = "${project.projectVersion}";
+	public static final String DEV_VERSION = "${project.projectVersion}";
 	public static final String JDK_VERSION = "${project.jdkVersion}";
 }
     """
