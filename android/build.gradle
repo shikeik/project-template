@@ -9,16 +9,16 @@ apply plugin: 'com.android.application'
 
 android {
 	namespace "com.example.libgdxdevtemplate.android"
-	compileSdk 30 //旧版android兼容
+	compileSdk 34 // 更新到34以兼容androidx.core:core:1.12.0
 	sourceSets {
 		main {
-			manifest.srcFile 'src/main/AndroidManifest.xml' //旧版android兼容
+			manifest.srcFile 'src/main/AndroidManifest.xml'
 			java.srcDirs = ['src/main/java']
 			aidl.srcDirs = ['src/main/aidl']
 			renderscript.srcDirs = ['src/main/renderscript']
-			res.srcDirs = ['src/main/res'] //旧版android兼容
-			assets.srcDirs = ['../assets'] //--aide兼容-- 已更新到根目录位置
-			jniLibs.srcDirs = ['src/main/JNIlibs'] //aide兼容
+			res.srcDirs = ['src/main/res']
+			assets.srcDirs = ['../assets']
+			jniLibs.srcDirs = ['src/main/JNIlibs']
 		}
 	}
 	packagingOptions {
@@ -34,7 +34,7 @@ android {
 		minSdkVersion 24
 		targetSdkVersion 34
 		versionCode 1
-		versionName project.projectVersion
+		versionName "0.1.0"//aide+无法使用gradle变量故保持0.1.0
 		multiDexEnabled true
 	}
 	compileOptions {
@@ -42,9 +42,32 @@ android {
 		targetCompatibility "8"
 		coreLibraryDesugaringEnabled true
 	}
+	signingConfigs{
+		// release自行配置
+		release{
+			keyAlias "AIDE+"
+			keyPassword "123789456"
+			storePassword "123789456"
+			storeFile file("app-release.jks")
+		}
+		debug{
+			keyAlias "androiddebug"
+			keyPassword "123789456"
+			storePassword "123789456"
+			storeFile file("app-debug.jks")
+		}
+	}
 	buildTypes {
+		debug {
+			signingConfig signingConfigs.debug
+		}
+		// 仅支持release配置，仅当值为true时启用
 		release {
-			minifyEnabled false //取消混淆以提高编译速度
+			// 资源混淆
+			shrinkResources false
+			// 代码混淆[增量构建失效]
+			minifyEnabled false
+			// 代码混淆配置文件
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 		}
 	}
@@ -64,6 +87,9 @@ repositories {
 configurations { natives }
 
 dependencies {
+	implementation files('libs/MTDataFilesProvider.jar')
+	implementation 'androidx.core:core:1.12.0'
+
 	coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 
 	implementation "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
@@ -78,6 +104,11 @@ dependencies {
 	natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-arm64-v8a"
 	natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86"
 	natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86_64"
+
+	natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-armeabi-v7a"
+	natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-arm64-v8a"
+	natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86"
+	natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86_64"
 
 }
 
