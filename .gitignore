@@ -162,3 +162,4 @@ Thumbs.db
 /outputs/LibgdxDevTemplate*.exe
 /outputs/LibgdxDevTemplate*.apk
 /outputs/LibgdxDevTemplate*.jar
+/outputs/error.log
