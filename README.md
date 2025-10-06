@@ -1,4 +1,4 @@
-# LibgdxDevTemplate V0.3.8
+# LibgdxDevTemplate V0.3.9
 ## 介绍:
 暂无
 
