@@ -168,7 +168,7 @@ tasks.register('run', Exec) {
 	}
 
 	def adb = path + "/platform-tools/adb"
-	commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.goldsprite.nfightgame/com.goldsprite.nfightgame.android.AndroidLauncher'
+	commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.example.libgdxdevtemplate/com.example.libgdxdevtemplate.android.AndroidLauncher'
 }
 
 // APK 复制配置

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="NFightGame [lwjgl3:dist]" type="GradleRunConfiguration" factoryName="Gradle">
+  <configuration default="false" name="LibgdxDevTemplate [lwjgl3:dist]" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
       <option name="externalProjectPath" value="$PROJECT_DIR$" />
