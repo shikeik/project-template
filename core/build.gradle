@@ -12,10 +12,8 @@ version = '0.1.0'
 dependencies {
 	api "com.badlogicgames.gdx:gdx:$gdxVersion"
 	api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
-
-	if (enableGraalNative == 'true') {
-		implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
-	}
+	api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
+	api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
 }
 
 publishing {
@@ -132,18 +130,41 @@ tasks.javadoc {
 build.dependsOn javadoc
 
 //自动同步版本文件
-def projectPackage = project.projectPackage
-tasks.register('generateVersionFile') {
-	def packagePath = projectPackage.replace('.', '/')
-	def versionFile = file("$projectDir/src/main/java/${packagePath}/Version.java")
-	versionFile.parentFile.mkdirs()
+def projectPackage = project.projectPackage//获取项目包名
+tasks.register('generateBuildConfig') {
+	def packagePath = projectPackage.replace('.', '/')//处理为包路径
+	def versionFile = file("$projectDir/src/main/java/${packagePath}/BuildConfig.java")//创建配置文件
+	versionFile.parentFile.mkdirs()//创建前置所有目录
+	//写入数据
 	versionFile.text = """package $projectPackage;
-public class Version {
+public class BuildConfig {
 	public static final String GAME_VERSION = "${project.projectVersion}";
+	public static final String JDK_VERSION = "${project.jdkVersion}";
 }
     """
+	println "Updated BuildConfig version to ${projectVersion}"
 }
-compileJava.dependsOn(generateVersionFile)
+compileJava.dependsOn(generateBuildConfig)
+
+//更新README项目版本
+tasks.register('updateReadmeVersion') {
+	//不需要doLast因为修改项目版本号后立即刷新gradle配置就顺势更新了
+//	doLast {
+	def readmeFile = file("$rootProject.projectDir/README.md")
+	if (!readmeFile.exists() || !project.hasProperty("projectVersion")) return
+
+	def content = readmeFile.getText('UTF-8')
+	def projectVersion = project.projectVersion
+	// 使用正则表达式匹配并替换版本号
+	def updatedContent = content.replaceFirst(/^(# .*?)(\d[\d.]*\d.*?)/) {
+		all, prefix, oldVersion ->
+			"${prefix}${projectVersion}"
+	}
+	readmeFile.write(updatedContent, 'UTF-8')
+	println "Updated README.md version to ${projectVersion}"
+//	}
+}
+compileJava.dependsOn(updateReadmeVersion)
 
 testing {
 	suites {
@@ -156,9 +177,4 @@ testing {
 }
 tasks.named('build') {
 	dependsOn testing.suites.test // 确保 testing 的测试任务在 build 时执行
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
 }

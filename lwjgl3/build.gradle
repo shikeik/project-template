@@ -3,7 +3,8 @@ buildscript {
 		gradlePluginPortal()
 	}
 	dependencies {
-		classpath "io.github.fourlastor:construo:1.5.1"
+		// Temporarily disabled construo plugin due to Java version conflict
+		// classpath "io.github.fourlastor:construo:1.5.1"
 
 		if (enableGraalNative == 'true') {
 			classpath "org.graalvm.buildtools.native:org.graalvm.buildtools.native.gradle.plugin:0.9.28"
@@ -13,28 +14,30 @@ buildscript {
 plugins {
 	id "application"
 }
-apply plugin: 'io.github.fourlastor.construo'
+// Temporarily disabled construo plugin due to Java version conflict
+// apply plugin: 'io.github.fourlastor.construo'
 
 
-import io.github.fourlastor.construo.Target
+// import io.github.fourlastor.construo.Target
 
 sourceSets.main.resources.srcDirs += [rootProject.file('/assets').path]
 mainClassName = 'com.example.libgdxdevtemplate.lwjgl3.Lwjgl3Launcher'
 application.setMainClass(mainClassName)
 eclipse.project.name = appName + '-lwjgl3'
-java.sourceCompatibility = 8
-java.targetCompatibility = 8
-if (JavaVersion.current().isJava9Compatible()) {
-	compileJava.options.release.set(8)
-}
+//取消java8限制
+//java.sourceCompatibility = 8
+//java.targetCompatibility = 8
+//if (JavaVersion.current().isJava9Compatible()) {
+//	compileJava.options.release.set(8)
+//}
 
 dependencies {
 	implementation project(':examples')
 
 	implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
-
 	implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-	runtimeOnly "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+	implementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+	implementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
 
 	if (enableGraalNative == 'true') {
 		implementation "io.github.berstanio:gdx-svmhelper-backend-lwjgl3:$graalHelperVersion"
@@ -53,7 +56,8 @@ run {
 
 jar {
 // sets the name of the .jar file this produces to the name of the game or app, with the version after.
-	archiveFileName.set("${appName}-${projectVersion}.jar")
+	archiveFileName.set("${appName}.jar")
+	destinationDirectory.set(file("${rootProject.projectDir}/outputs"))
 // the duplicatesStrategy matters starting in Gradle 7.0; this setting works.
 	duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 	dependsOn configurations.runtimeClasspath
@@ -73,6 +77,8 @@ jar {
 	}
 }
 
+// Temporarily disabled construo configuration due to Java version conflict
+/*
 construo {
 	// name of the executable
 	name.set(appName)
@@ -110,6 +116,7 @@ construo {
 		}
 	}
 }
+*/
 
 // Equivalent to the jar task; here for compatibility with gdx-setup.
 tasks.register('dist') {
