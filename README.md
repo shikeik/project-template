@@ -1,4 +1,4 @@
-# NFightGame V0.3.6
+# NFightGame V0.3.7
 ## 介绍:
 暂无
 
