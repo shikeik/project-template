@@ -86,6 +86,13 @@ subprojects {
 		maven { url 'https://dl.bintray.com/ppartisan/maven/' }
 		maven { url "https://clojars.org/repo/" }
 	}
+
+	plugins.withType(JavaPlugin) {
+		java {
+			sourceCompatibility = JavaVersion.toVersion(project.jdkVersion)
+			targetCompatibility = JavaVersion.toVersion(project.jdkVersion)
+		}
+	}
 }
 
 eclipse.project.name = 'LibgdxDevTemplate' + '-parent'
